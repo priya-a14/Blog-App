@@ -1,0 +1,329 @@
+// Color Variables
+$lightTeal: #e2f7f5;
+$themeGreen: #28a745;
+$softGray: #f4f4f4;
+$darkGray: #333;
+$hoverGray: #e0e0e0;
+$lightGray: #f1f1f1;
+$newHoverColor: #5bc0de;
+
+// Global Link Style Reset
+.link {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// General Body and Layout
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e3f2fd, rgb(230, 234, 237));
+}
+
+// App Container
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .container {
+    flex: 1;
+    width: 1024px;
+    margin: 0 auto;
+  }
+
+  footer {
+    background-color: $softGray;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: auto;
+    width: 100%;
+
+    img {
+      height: 40px;
+    }
+
+    p {
+      color: $darkGray;
+      font-size: 12px;
+    }
+  }
+}
+
+// Auth
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $lightTeal;
+
+  h1 {
+    font-size: 24px;
+    color: $themeGreen;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background-color: white;
+    width: 300px;
+    gap: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      background-color: $themeGreen;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: darken($themeGreen, 10%);
+      }
+    }
+
+    p {
+      font-size: 12px;
+      color: red;
+      text-align: center;
+    }
+
+    span {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}
+
+// Navbar
+.navbar {
+  background: linear-gradient(to right, $lightTeal, #ffffff);
+  padding: 15px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+
+    .logo img {
+      width: 100px;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      h6 {
+        color: $darkGray;
+        font-weight: 400;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: color 0.3s, transform 0.3s ease-in-out;
+
+        &:hover {
+          background-color: $newHoverColor;
+          color: white;
+          transform: scale(1.1);
+        }
+      }
+
+      span {
+        cursor: pointer;
+        color: $darkGray;
+        font-size: 14px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .write {
+        background-color: rgb(216, 238, 255);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color:black;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: white;
+          color: $themeGreen;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+// Home
+.home {
+  .posts {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    .post {
+      display: flex;
+      gap: 50px;
+
+      &:nth-child(2n + 1) {
+        flex-direction: row-reverse;
+      }
+
+      .img {
+        flex: 2;
+        position: relative;
+        width: 100%;
+
+        &::after {
+          content: "";
+          background-color: $lightTeal;
+          position: absolute;
+          top: 10px;
+          left: -10px;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+        }
+
+        img {
+          width: 100%;
+          max-height: 400px;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+
+      .content {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h1 {
+          font-size: 36px;
+          color: $darkGray;
+        }
+
+        p {
+          font-size: 18px;
+          color: #555;
+          line-height: 1.6;
+        }
+
+        button {
+          padding: 10px 20px;
+          border: 1px solid $themeGreen;
+          background-color: white;
+          color: $themeGreen;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: $lightTeal;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    .links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  .home .posts {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .post {
+    flex-direction: column;
+
+    .img img {
+      width: 100%;
+      height: auto;
+    }
+
+    .content h1 {
+      font-size: 20px;
+    }
+
+    .content p {
+      font-size: 14px;
+    }
+  }
+
+  .single {
+    flex-direction: column;
+  }
+
+  .add {
+    flex-direction: column;
+  }
+
+  .auth form {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .menu .post img {
+    width: 100%;
+    height: auto;
+  }
+}
